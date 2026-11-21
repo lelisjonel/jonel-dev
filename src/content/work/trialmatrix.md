@@ -5,7 +5,7 @@ client: TrialMatrix
 type: SaaS / AI product website
 role: Webflow Development
 stack: [Webflow, Interactions, Client-First]
-liveUrl: https://trial-matrix.webflow.io/
+liveUrl: https://www.trialmatrix.ai/
 cover: ../../assets/work/trialmatrix.png
 coverAlt: TrialMatrix homepage hero with a courtroom background
 accent: '#d9c7a3'

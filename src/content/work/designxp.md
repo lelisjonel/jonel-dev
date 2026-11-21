@@ -5,7 +5,7 @@ client: DesignXP
 type: Education / program website
 role: Webflow Development
 stack: [Webflow, CMS, Client-First]
-liveUrl: https://design-xp-v2.webflow.io/
+liveUrl: https://www.design-xp.com/
 cover: ../../assets/work/designxp.png
 coverAlt: DesignXP homepage hero with apprenticeship pricing card
 accent: '#ff6b3d'

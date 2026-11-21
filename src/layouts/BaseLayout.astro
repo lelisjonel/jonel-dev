@@ -17,7 +17,8 @@ interface Props {
   image?: string;               // share image URL (og:image), e.g. a blog cover
 }
 
-const { title, description = site.tagline, type = 'website', noindex = false, image } = Astro.props;
+// Pages without their own image (home, about, blog list) use the site-wide share card.
+const { title, description = site.tagline, type = 'website', noindex = false, image = '/og-image.png' } = Astro.props;
 
 // Home page shows just "Jonel — Web Designer & Developer".
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.role}`;
@@ -39,8 +40,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={type} />
-    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image:alt" content={`${site.fullName}, ${site.role}`} />
+    <meta property="og:site_name" content="jonel.dev" />
+    <meta name="twitter:card" content="summary_large_image" />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <slot name="head" />

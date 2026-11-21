@@ -1,6 +1,7 @@
 ---
 // src/components/Header.astro
 // The navbar. `isActive` highlights the link for the page you're on.
+// On small screens the links collapse into a hamburger menu.
 import { site } from '../data/site';
 import { getPosts } from '../lib/blog';
 
@@ -23,7 +24,12 @@ const isActive = (href: string) => href !== '/#contact' && path.startsWith(href)
     <a class="nav_logo" href="/" aria-label="Home">
       {site.name.toLowerCase()}<span class="text-accent">.dev</span>
     </a>
-    <nav aria-label="Main">
+    <button class="nav_toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <span class="nav_toggle-bar"></span>
+      <span class="nav_toggle-bar"></span>
+      <span class="nav_toggle-bar"></span>
+    </button>
+    <nav id="nav-menu" class="nav_menu" aria-label="Main">
       <ul class="nav_list">
         {links.map((link) => (
           <li>
@@ -43,3 +49,24 @@ const isActive = (href: string) => href !== '/#contact' && path.startsWith(href)
     </nav>
   </div>
 </header>
+
+<script>
+  // Open/close the mobile menu. Closes on link click and on Escape.
+  const toggle = document.querySelector<HTMLButtonElement>('.nav_toggle');
+  const header = document.querySelector('.nav');
+
+  const setOpen = (open: boolean) => {
+    toggle?.setAttribute('aria-expanded', String(open));
+    toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    header?.classList.toggle('is-open', open);
+  };
+
+  toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+  document.querySelectorAll('.nav_menu a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && header?.classList.contains('is-open')) {
+      setOpen(false);
+      toggle?.focus();
+    }
+  });
+</script>

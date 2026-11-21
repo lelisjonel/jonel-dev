@@ -107,7 +107,32 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
 .nav_logo { font-family: var(--font-mono); font-weight: 500; font-size: 1.0625rem; }
 .nav_list { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); }
 .nav_button { padding: 0.5rem 1rem; font-size: 0.875rem; }
-@media (max-width: 30rem) { .nav_button { display: none; } }
+
+/* Hamburger button: hidden on desktop. */
+.nav_toggle { display: none; }
+
+/* Mobile menu: links collapse behind the hamburger below 48rem. */
+@media (max-width: 47.99rem) {
+  .nav_toggle {
+    display: inline-flex; flex-direction: column; justify-content: center; gap: 5px;
+    width: 44px; height: 44px; padding: 0 11px; margin-right: -11px;
+    background: none; border: 0; cursor: pointer; border-radius: 8px;
+  }
+  .nav_toggle-bar { display: block; height: 2px; width: 100%; background: var(--text); border-radius: 2px; transition: transform 0.25s, opacity 0.2s; }
+  .nav.is-open .nav_toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav.is-open .nav_toggle-bar:nth-child(2) { opacity: 0; }
+  .nav.is-open .nav_toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .nav_menu {
+    display: none; position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: 0.5rem var(--gutter) 1.5rem;
+  }
+  .nav.is-open .nav_menu { display: block; }
+  .nav_list { flex-direction: column; align-items: stretch; gap: 0; }
+  .nav_link { display: block; padding: 0.9rem 0; font-size: 1.125rem; color: var(--text); border-bottom: 1px solid var(--border); }
+  .nav_button { display: flex; justify-content: center; margin-top: 1.25rem; padding: 0.8rem 1.4rem; font-size: 1rem; }
+}
 .nav_link { color: var(--text-muted); font-size: 0.9375rem; transition: color 0.2s; }
 .nav_link:hover, .nav_link.is-active { color: var(--text); }
 

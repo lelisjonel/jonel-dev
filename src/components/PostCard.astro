@@ -2,6 +2,7 @@
 // src/components/PostCard.astro
 // One blog post in a list. Webflow comparison: an item in a Collection List.
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 import { formatDate, readingTime } from '../lib/blog';
 
 interface Props {
@@ -9,15 +10,20 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, draft } = post.data;
+const { title, description, pubDate, draft, cover, coverAlt } = post.data;
 ---
 
-<a class="post-card" href={`/blog/${post.id}`}>
-  <div class="post-card_meta">
-    <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
-    <span>{readingTime(post)}</span>
-    {draft && <span class="post-card_draft">Draft</span>}
+<a class:list={['post-card', { 'has-cover': cover }]} href={`/blog/${post.id}`}>
+  {cover && (
+    <Image class="post-card_cover" src={cover} alt={coverAlt ?? ''} width={640} />
+  )}
+  <div class="post-card_body">
+    <div class="post-card_meta">
+      <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+      <span>{readingTime(post)}</span>
+      {draft && <span class="post-card_draft">Draft</span>}
+    </div>
+    <h3 class="post-card_title">{title} <span class="project-card_arrow">→</span></h3>
+    <p class="text-muted">{description}</p>
   </div>
-  <h3 class="post-card_title">{title} <span class="project-card_arrow">→</span></h3>
-  <p class="text-muted">{description}</p>
 </a>

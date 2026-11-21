@@ -6,6 +6,8 @@ type: Service business website
 role: Webflow Development
 stack: [Webflow, CMS]
 liveUrl: https://hire-smart-solution.webflow.io/
+cover: ../../assets/work/hire-smart-solution.png
+coverAlt: Hire Smart Solution website homepage hero
 accent: '#4fd1a5'
 order: 5
 ---

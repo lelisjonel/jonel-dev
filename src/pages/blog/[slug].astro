@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------------
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
 import { getPosts, formatDate, readingTime } from '../../lib/blog';
 import { site } from '../../data/site';
 
@@ -18,8 +19,11 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { title, description, pubDate, updatedDate, tags, draft } = post.data;
+const { title, description, pubDate, updatedDate, tags, draft, cover, coverAlt } = post.data;
 const { Content } = await render(post);
+
+// Share image for Facebook/LinkedIn/Messenger: a 1200px JPG made from the cover.
+const shareImage = cover ? (await getImage({ src: cover, width: 1200, format: 'jpg' })).src : undefined;
 
 // Structured data: tells Google this page is a blog post, who wrote it and when.
 const schema = {
@@ -31,10 +35,11 @@ const schema = {
   dateModified: (updatedDate ?? pubDate).toISOString(),
   author: { '@type': 'Person', name: site.fullName, url: Astro.site?.href },
   mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+  ...(shareImage && { image: new URL(shareImage, Astro.site).href }),
 };
 ---
 
-<BaseLayout title={title} description={description} type="article" noindex={draft}>
+<BaseLayout title={title} description={description} type="article" noindex={draft} image={shareImage}>
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
   <article class="container post">
@@ -48,6 +53,10 @@ const schema = {
         {draft && <span class="post-card_draft">Draft (only visible on localhost)</span>}
       </div>
     </header>
+
+    {cover && (
+      <Image class="post_cover" src={cover} alt={coverAlt ?? ''} width={1200} loading="eager" />
+    )}
 
     <div class="prose post_body">
       <Content />

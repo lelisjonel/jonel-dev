@@ -36,7 +36,8 @@ My portfolio site, built with [Astro](https://astro.build) and deployed on Verce
 
 Copy `blog-template.md` into `src/content/blog/`, rename it (the file name is
 the URL), fill it in, and delete `draft: true` when it's ready to publish.
-Put images in `public/blog/`.
+Put images in `src/content/blog/images/` and link them as `./images/name.png`;
+Astro converts them to WebP automatically.
 
 ## Adding a project
 

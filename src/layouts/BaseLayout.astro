@@ -14,9 +14,10 @@ interface Props {
   description?: string;
   type?: 'website' | 'article'; // og:type, "article" for blog posts
   noindex?: boolean;            // true = ask Google not to index this page
+  image?: string;               // share image URL (og:image), e.g. a blog cover
 }
 
-const { title, description = site.tagline, type = 'website', noindex = false } = Astro.props;
+const { title, description = site.tagline, type = 'website', noindex = false, image } = Astro.props;
 
 // Home page shows just "Jonel — Web Designer & Developer".
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.role}`;
@@ -38,7 +39,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content={type} />
-    <meta name="twitter:card" content="summary" />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="sitemap" href="/sitemap-index.xml" />
     <slot name="head" />

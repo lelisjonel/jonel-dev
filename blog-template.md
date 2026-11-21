@@ -8,12 +8,17 @@
 # 4. Preview with `npm run dev` at http://localhost:4321/blog
 # 5. When ready, delete the `draft: true` line and git push. Live in ~10 seconds.
 #
+# COVER IMAGE: best size is 1200 x 675 px (16:9). WebP, PNG or JPG all work.
+# No cover yet? Delete the `cover` and `coverAlt` lines.
+#
 # (These # lines are comments. You can delete them in your copy.)
 
 title: "Your Post Title Here"             # under ~60 characters
 description: "One or two sentences about the post. This shows in Google results, so make it clear and specific. Aim for 140 to 160 characters."
 pubDate: 2026-11-22                        # YYYY-MM-DD
 tags: [Webflow, Client-First]              # any words you like
+cover: ./images/your-post-name.webp        # thumbnail + share image (optional). File goes in src/content/blog/images/
+coverAlt: "Describe the cover image"       # what the image shows, for Google and screen readers
 draft: true                                # delete this line to publish
 ---
 
@@ -42,9 +47,11 @@ Inline code looks like `hero_title`. A code block looks like this:
 </div>
 ```
 
-To add an image, put the file in `public/blog/` and write:
+To add an image, put the file in `src/content/blog/images/` and write:
 
-![Describe the image for Google and screen readers](/blog/my-image.png)
+![Describe the image for Google and screen readers](./images/my-image.png)
+
+Astro automatically converts it to WebP, resizes it and lazy-loads it.
 
 ## Final thoughts
 

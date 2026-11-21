@@ -6,6 +6,8 @@ type: Startup landing page
 role: Webflow Development
 stack: [Webflow, Interactions]
 liveUrl: https://yeebee-website.webflow.io/
+cover: ../../assets/work/yeebee.png
+coverAlt: yeebee landing page hero with app preview
 accent: '#ffd23f'
 order: 6
 ---

@@ -6,6 +6,8 @@ type: Campaign landing page
 role: Webflow Development
 stack: [Webflow, Client-First, HubSpot Forms]
 liveUrl: https://www.dlp.sucks/
+cover: ../../assets/work/dlp-sucks.png
+coverAlt: DLP Sucks campaign site hero with graffiti logo
 accent: '#b48cff'
 featured: true
 order: 2

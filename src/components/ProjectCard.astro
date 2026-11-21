@@ -2,18 +2,23 @@
 // src/components/ProjectCard.astro
 // One project card. Webflow comparison: the item inside a Collection List.
 import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
 
 interface Props {
   project: CollectionEntry<'work'>;
 }
 
 const { project } = Astro.props;
-const { title, summary, type, stack, accent } = project.data;
+const { title, summary, type, stack, accent, cover, coverAlt } = project.data;
 ---
 
 <a class="project-card" href={`/work/${project.id}`} style={`--accent-card: ${accent}`}>
-  <div class="project-card_thumb" aria-hidden="true">
-    <span class="project-card_initial">{title.charAt(0)}</span>
+  <div class="project-card_thumb" aria-hidden={cover ? undefined : 'true'}>
+    {cover ? (
+      <Image class="project-card_image" src={cover} alt={coverAlt ?? title} width={720} />
+    ) : (
+      <span class="project-card_initial">{title.charAt(0)}</span>
+    )}
   </div>
   <div class="project-card_body">
     <div class="project-card_meta">

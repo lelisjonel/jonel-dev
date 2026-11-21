@@ -15,7 +15,7 @@ import { z } from 'astro/zod';
 
 const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     summary: z.string(),                 // one line, shown on cards
     client: z.string(),
@@ -24,7 +24,9 @@ const work = defineCollection({
     role: z.string(),
     stack: z.array(z.string()),
     liveUrl: z.string().url().optional(), // link to the live site, if any
-    accent: z.string().default('#c6f36b'), // colour of the card thumbnail
+    cover: image().optional(),             // hero screenshot, e.g. ../../assets/work/kitci.png
+    coverAlt: z.string().optional(),
+    accent: z.string().default('#c6f36b'), // card colour, used when there is no cover
     featured: z.boolean().default(false),  // featured = shown on the home page
     order: z.number().default(99),         // lower number = shown first
     draft: z.boolean().default(false),
@@ -37,12 +39,15 @@ const work = defineCollection({
 // `draft: true` posts show on localhost only, never on the live site.
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
-  schema: z.object({
+  // `image()` checks the cover file exists and lets Astro optimize it.
+  schema: ({ image }) => z.object({
     title: z.string(),                   // keep under ~60 characters for Google
     description: z.string(),             // 140–160 characters, shown in search results
     pubDate: z.coerce.date(),            // "2026-11-22" in the file -> a real Date
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
+    cover: image().optional(),           // thumbnail + share image, e.g. ./images/my-post.webp
+    coverAlt: z.string().optional(),     // describe the cover for Google and screen readers
     draft: z.boolean().default(false),
   }),
 });

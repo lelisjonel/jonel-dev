@@ -7,6 +7,8 @@ year: 2026
 role: Design & Development
 stack: [Astro, Markdown, Netlify]
 liveUrl: https://astrolearn2.netlify.app/
+cover: ../../assets/work/astro-marketing-site.png
+coverAlt: Astro marketing site homepage hero
 accent: '#c6f36b'
 featured: true
 order: 3

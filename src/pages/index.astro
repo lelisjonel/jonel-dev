@@ -25,11 +25,12 @@ const latestPosts = (await getPosts()).slice(0, 3);
         )}
       </div>
       <h1 class="heading-xl hero_title">
-        Hi, I'm {site.name}. Webflow <span class="text-accent text-nowrap">Client-First</span> &amp; Astro Developer.
+        Hi, I'm {site.fullName}. I turn Figma designs into fast, <span class="text-accent text-nowrap">pixel-perfect</span> Webflow &amp; Astro sites.
       </h1>
       <p class="text-large text-muted hero_text">
-        {site.yearsExperience}+ years turning Figma designs into fast, clean websites, from {site.location}. {site.tagline}
+        {site.yearsExperience}+ years building Client-First Webflow sites and lightning-fast Astro sites, from {site.location}.
       </p>
+      <p class="hero_availability">{site.availability}</p>
       <div class="button-group">
         <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
         <a class="button" href="/work">View my work</a>
@@ -101,6 +102,7 @@ const latestPosts = (await getPosts()).slice(0, 3);
       <span class="eyebrow">Contact</span>
       <h2 class="heading-l cta_title">Have a Figma file that needs building? Let's talk.</h2>
       <p class="text-large text-muted cta_text">Book a free discovery call, or send me an email.</p>
+      <p class="hero_availability cta_availability">{site.availability}</p>
       <div class="button-group">
         <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
         <a class="button" href={`mailto:${site.email}`}>{site.email}</a>

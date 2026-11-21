@@ -23,7 +23,7 @@ interface Props {
 const { title, description = site.tagline, type = 'website', noindex = false, image = '/og-image.png' } = Astro.props;
 
 // Home page shows just "Jonel — Web Designer & Developer".
-const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.role}`;
+const fullTitle = title ? `${title} | ${site.fullName}` : `${site.fullName} | ${site.role}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 

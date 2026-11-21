@@ -121,8 +121,10 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
   font-size: 0.875rem; color: var(--text-muted);
 }
 .hero_dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
-.hero_title { max-width: 16ch; margin-bottom: 1.5rem; }
-.hero_text { max-width: 38rem; margin-bottom: 2.5rem; }
+.hero_title { max-width: 20ch; margin-bottom: 1.5rem; font-size: clamp(2.5rem, 6vw, 4.5rem); }
+.hero_text { max-width: 38rem; margin-bottom: 1rem; }
+.hero_availability { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 2.5rem; }
+.cta_availability { margin-top: -1rem; margin-bottom: 2rem; }
 
 /* ---- Project cards -------------------------------------------------------- */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 1.5rem; }

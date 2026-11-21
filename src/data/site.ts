@@ -14,6 +14,8 @@ export const site = {
   bookingUrl: 'https://calendly.com/jonellelis/discovery-call',
   photo: '/jonel.png',
   available: true, // shows the "Available for work" badge on the home page
+  // Shown in the hero and contact section. Employers and agencies look for this.
+  availability: 'Based in the Philippines (GMT+8) · Flexible hours, including US time zones',
 
   // Add links here as you set them up. Empty = hidden on the site.
   socials: [

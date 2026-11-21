@@ -7,7 +7,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="container footer_inner">
-    <p class="text-muted">© {year} {site.name}. Built with Astro.</p>
+    <p class="text-muted">© {year} {site.fullName}. Built with Astro.</p>
     <ul class="footer_socials">
       {site.socials.map((s) => (
         <li><a href={s.href} target="_blank" rel="noopener">{s.label}</a></li>

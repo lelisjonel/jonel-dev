@@ -1,0 +1,26 @@
+---
+// src/pages/work/index.astro  ->  URL: /work
+// Webflow comparison: a static page with a Collection List of every project.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getProjects } from '../../lib/work';
+
+const projects = await getProjects();
+---
+
+<BaseLayout title="Work" description="Selected websites and projects I've designed and built.">
+  <section class="case_header">
+    <div class="container">
+      <span class="eyebrow">Portfolio</span>
+      <h1 class="heading-xl case_title">All work</h1>
+      <p class="text-large text-muted">A selection of {projects.length} projects, from Webflow builds to Astro sites. Some client work is under NDA and not shown here.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      <div class="project-grid">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

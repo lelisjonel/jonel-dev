@@ -1,0 +1,40 @@
+---
+// src/components/Header.astro
+// The navbar. `isActive` highlights the link for the page you're on.
+import { site } from '../data/site';
+
+const links = [
+  { label: 'Work', href: '/work' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/#contact' },
+];
+
+const path = Astro.url.pathname;
+const isActive = (href: string) => href !== '/#contact' && path.startsWith(href);
+---
+
+<header class="nav">
+  <div class="container nav_inner">
+    <a class="nav_logo" href="/" aria-label="Home">
+      {site.name.toLowerCase()}<span class="text-accent">.dev</span>
+    </a>
+    <nav aria-label="Main">
+      <ul class="nav_list">
+        {links.map((link) => (
+          <li>
+            <a
+              class:list={['nav_link', { 'is-active': isActive(link.href) }]}
+              href={link.href}
+              aria-current={isActive(link.href) ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a class="button is-primary nav_button" href={site.bookingUrl} target="_blank" rel="noopener">Book a call</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

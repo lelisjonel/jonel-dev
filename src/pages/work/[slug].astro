@@ -1,0 +1,69 @@
+---
+// src/pages/work/[slug].astro  ->  URL: /work/<project>
+// -----------------------------------------------------------------------------
+// A DYNAMIC ROUTE. Webflow comparison: the Work *Collection Template page*.
+// getStaticPaths() tells Astro every project URL to build.
+// -----------------------------------------------------------------------------
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { render } from 'astro:content';
+import { getProjects } from '../../lib/work';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+
+  return projects.map((project, i) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      // Previous / next project links at the bottom of the page.
+      prev: projects[i - 1] ?? null,
+      next: projects[i + 1] ?? null,
+    },
+  }));
+}
+
+const { project, prev, next } = Astro.props;
+const { title, summary, client, type, year, role, stack, liveUrl, accent } = project.data;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={title} description={summary}>
+  <article>
+    <header class="case_header">
+      <div class="container">
+        <a class="link-arrow" href="/work">← All work</a>
+        <h1 class="heading-xl case_title">{title}</h1>
+        <p class="text-large text-muted">{summary}</p>
+      </div>
+    </header>
+
+    <div class="container">
+      <dl class="case_facts">
+        <div class="case_fact"><dt>Client</dt><dd>{client}</dd></div>
+        <div class="case_fact"><dt>Type</dt><dd>{type}</dd></div>
+        {year && <div class="case_fact"><dt>Year</dt><dd>{year}</dd></div>}
+        <div class="case_fact"><dt>Role</dt><dd>{role}</dd></div>
+        <div class="case_fact"><dt>Stack</dt><dd>{stack.join(', ')}</dd></div>
+      </dl>
+
+      <!-- Placeholder visual. Swap for a screenshot: <img src="/work/my-project.jpg" alt="..."> -->
+      <div
+        class="case_hero"
+        aria-hidden="true"
+        style={`background: radial-gradient(circle at 25% 25%, color-mix(in srgb, ${accent} 40%, transparent), transparent 60%), var(--surface);`}
+      ></div>
+
+      <div class="prose">
+        <Content />
+        {liveUrl && (
+          <p><a class="button is-primary" href={liveUrl} target="_blank" rel="noopener">Visit live site ↗</a></p>
+        )}
+      </div>
+
+      <nav class="case_nav" aria-label="More projects">
+        {prev ? <a class="link-arrow" href={`/work/${prev.id}`}>← {prev.data.title}</a> : <span />}
+        {next ? <a class="link-arrow" href={`/work/${next.id}`}>{next.data.title} →</a> : <span />}
+      </nav>
+    </div>
+  </article>
+</BaseLayout>

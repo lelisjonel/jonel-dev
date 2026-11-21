@@ -1,0 +1,73 @@
+---
+// src/pages/about.astro  ->  URL: /about
+// Experience comes from `experience` in src/data/site.ts.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="About" description={`About ${site.fullName}, ${site.role} based in ${site.location}.`}>
+  <section class="case_header">
+    <div class="container">
+      <div class="about-grid">
+        <img class="about_portrait" src={site.photo} alt={`Portrait of ${site.fullName}`} width="600" height="600" />
+        <div class="prose">
+          <span class="eyebrow">About</span>
+          <h1 class="heading-l">I care about the details people don't notice, until they're missing.</h1>
+          <p>
+            I'm {site.fullName}, a Webflow and Astro developer from {site.location} with
+            {site.yearsExperience}+ years of experience. I take UI/UX designs from Figma and turn
+            them into pixel-perfect, responsive websites that are fast, accessible and SEO-ready.
+          </p>
+          <p>
+            In Webflow, every build follows the Client-First system, so class names are predictable
+            and your team can keep editing long after launch. When a project needs maximum speed or
+            full ownership of the code, I build it in Astro: static pages, content in Markdown, and
+            automatic deploys on every push. This portfolio is one of them.
+          </p>
+          <p>
+            I work remotely with designers, project managers and agencies, on everything from
+            campaign landing pages to large CMS-driven sites.
+          </p>
+
+          <h2>How I work</h2>
+          <ul>
+            <li>Page-by-page builds with a staging review before anything goes live</li>
+            <li>Clean, reusable components and CMS collections your team can manage</li>
+            <li>Responsive QA on desktop, tablet and mobile, plus performance and SEO checks</li>
+          </ul>
+
+          <div class="button-group" style="margin-top: 1rem">
+            <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
+            <a class="button" href="/work">See projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section_header">
+        <div>
+          <span class="eyebrow">Experience</span>
+          <h2 class="heading-l">Where I've worked</h2>
+        </div>
+      </div>
+      <ol class="timeline">
+        {site.experience.map((job) => (
+          <li class="timeline_item">
+            <p class="timeline_period">{job.period}</p>
+            <div>
+              <h3 class="heading-m">{job.company}</h3>
+              <p class="timeline_role">{job.role}</p>
+              <p class="text-muted">{job.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="text-muted" style="margin-top: 2.5rem">
+        BS Information Technology, AMA Fairview
+      </p>
+    </div>
+  </section>
+</BaseLayout>

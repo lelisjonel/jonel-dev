@@ -1,0 +1,92 @@
+---
+// src/pages/index.astro  ->  URL: /
+// -----------------------------------------------------------------------------
+// The home page: hero, featured work, services, and a contact call-to-action.
+// -----------------------------------------------------------------------------
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { site } from '../data/site';
+import { getFeaturedProjects } from '../lib/work';
+
+const featured = await getFeaturedProjects();
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero_intro">
+        <img class="hero_avatar" src={site.photo} alt={site.fullName} width="56" height="56" />
+        {site.available && (
+          <p class="hero_status"><span class="hero_dot"></span> Available for new projects</p>
+        )}
+      </div>
+      <h1 class="heading-xl hero_title">
+        Hi, I'm {site.name}. Webflow <span class="text-accent text-nowrap">Client-First</span> &amp; Astro Developer.
+      </h1>
+      <p class="text-large text-muted hero_text">
+        {site.yearsExperience}+ years turning Figma designs into fast, clean websites, from {site.location}. {site.tagline}
+      </p>
+      <div class="button-group">
+        <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
+        <a class="button" href="/work">View my work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured work -->
+  <section class="section">
+    <div class="container">
+      <div class="section_header">
+        <div>
+          <span class="eyebrow">Selected work</span>
+          <h2 class="heading-l">Recent projects</h2>
+        </div>
+        <a class="link-arrow" href="/work">All projects →</a>
+      </div>
+      <div class="project-grid">
+        {featured.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section_header">
+        <div>
+          <span class="eyebrow">What I do</span>
+          <h2 class="heading-l">Services</h2>
+        </div>
+      </div>
+      <div class="service-grid">
+        {site.services.map((service, i) => (
+          <div class="service-item">
+            <span class="service-item_number">0{i + 1}</span>
+            <h3 class="heading-m">{service.title}</h3>
+            <p class="text-muted">{service.text}</p>
+          </div>
+        ))}
+      </div>
+      <ul class="tag-list" aria-label="Tools I use">
+        {site.tools.map((tool) => <li class="tag">{tool}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section cta" id="contact">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h2 class="heading-l cta_title">Have a Figma file that needs building? Let's talk.</h2>
+      <p class="text-large text-muted cta_text">Book a free discovery call, or send me an email.</p>
+      <div class="button-group">
+        <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
+        <a class="button" href={`mailto:${site.email}`}>{site.email}</a>
+        {site.socials.map((s) => (
+          <a class="button" href={s.href} target="_blank" rel="noopener">{s.label}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

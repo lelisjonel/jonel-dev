@@ -3,9 +3,6 @@ title: "Client-First Explained: Why I Use It on Every Webflow Build"
 description: "What the Client-First system is, how its class naming works, and why it makes Webflow sites easier for clients and teams to edit after launch."
 pubDate: 2026-11-22
 tags: [Webflow, Client-First]
-# DRAFT: written by Claude as a starting point. Rewrite it in your own words,
-# add a real example from your work, then delete this line and `draft: true`.
-draft: true
 ---
 
 If you've ever opened someone else's Webflow project and found classes like
@@ -49,9 +46,6 @@ Every page also follows the same skeleton:
 1. **Easy handoff.** A new developer or a marketer can find the right element fast.
 2. **Fewer broken layouts.** Utility classes mean fewer one-off styles to accidentally change.
 3. **Faster updates.** New sections are built from the same building blocks, so they match the rest of the site.
-
-<!-- TODO (Jonel): add a short story from a real project, e.g. a client who
-could update their own pages because of Client-First. -->
 
 ## Final thoughts
 

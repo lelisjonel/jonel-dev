@@ -285,7 +285,12 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
   display: grid; gap: 1.25rem; align-items: center; margin-block: 4rem 2rem; padding: 2rem;
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
 }
-@media (min-width: 48rem) { .post_cta { grid-template-columns: auto 1fr auto; } }
+/* Mobile: stacked and centered. Desktop: avatar, text and button in one row. */
+.post_cta { justify-items: center; text-align: center; }
+.post_cta .button { justify-content: center; }
+@media (min-width: 48rem) {
+  .post_cta { grid-template-columns: auto 1fr auto; justify-items: start; text-align: left; }
+}
 
 /* ---- Footer --------------------------------------------------------------- */
 .footer { border-top: 1px solid var(--border); padding-block: 2rem; font-size: 0.9375rem; }

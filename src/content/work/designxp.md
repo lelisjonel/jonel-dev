@@ -9,7 +9,7 @@ liveUrl: https://design-xp-v2.webflow.io/
 cover: ../../assets/work/designxp.png
 coverAlt: DesignXP homepage hero with apprenticeship pricing card
 accent: '#ff6b3d'
-order: 4
+order: 5
 ---
 
 <!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->

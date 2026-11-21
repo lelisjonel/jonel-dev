@@ -9,7 +9,7 @@ liveUrl: https://yeebee-website.webflow.io/
 cover: ../../assets/work/yeebee.png
 coverAlt: yeebee landing page hero with app preview
 accent: '#ffd23f'
-order: 8
+order: 9
 ---
 
 <!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->

@@ -9,7 +9,7 @@ liveUrl: https://hire-smart-solution.webflow.io/
 cover: ../../assets/work/hire-smart-solution.png
 coverAlt: Hire Smart Solution website homepage hero
 accent: '#4fd1a5'
-order: 7
+order: 8
 ---
 
 <!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->

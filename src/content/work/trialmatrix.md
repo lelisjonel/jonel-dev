@@ -9,7 +9,7 @@ liveUrl: https://trial-matrix.webflow.io/
 cover: ../../assets/work/trialmatrix.png
 coverAlt: TrialMatrix homepage hero with a courtroom background
 accent: '#d9c7a3'
-order: 5
+order: 6
 ---
 
 <!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->

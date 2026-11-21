@@ -9,7 +9,7 @@ liveUrl: https://giving-green-earth.webflow.io/
 cover: ../../assets/work/giving-green.png
 coverAlt: Giving Green homepage hero with an illustrated landscape seen through a magnifying glass
 accent: '#3fbf7f'
-order: 6
+order: 7
 ---
 
 <!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->

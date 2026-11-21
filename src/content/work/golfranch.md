@@ -1,30 +1,36 @@
 ---
 title: Golf Ranch
-summary: A multi-location website for a modern driving range brand with Toptracer bays across four US states.
+summary: Ongoing Webflow maintenance for a multi-location driving range brand with six locations across four US states.
 client: Golf Ranch
-type: Multi-location brand website
-role: Webflow Development
+type: Website maintenance
+role: Webflow Maintenance & Updates
 stack: [Webflow, CMS, Client-First]
-liveUrl: https://golfranch-com.webflow.io/
+liveUrl: https://www.golfranch.com/
 cover: ../../assets/work/golfranch.png
 coverAlt: Golf Ranch homepage hero with golfers at a driving range
 accent: '#e6b800'
 order: 4
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
+<!-- TODO (Jonel): confirm the tasks below match what you actually do, and add
+how long you've maintained the site (e.g. "since 2025"). -->
 
 ## The project
 
 Golf Ranch is "a driving range, but better": Toptracer bays, premium balls and
 mats, and a relaxed vibe at six locations across Texas, Missouri, Connecticut
-and Arizona. The site needed to drive visits and lesson bookings for every
-location from one place.
+and Arizona. The site is live and busy, so it needs a developer who can keep it
+updated quickly without breaking anything.
 
-## What I built
+## What I do
 
-- A bold hero with "Get a Free Bucket" and "Find a Location" calls to action, plus a promo announcement bar
-- A location selector and CMS-driven location and lesson pages for all six sites
-- A "How to Golf Ranch" steps section, features, reviews and events
-- Golf Lessons menu with lesson offers and women's golf clinics
-- FAQs, a Ranch Pass membership section, gift cards and a newsletter signup
+- Keep the live Webflow site up to date as the business runs promotions, events and seasonal offers
+- Update CMS content for locations, golf lessons and clinics across all six sites
+- Build and adjust sections and pages inside the existing Client-First structure, so new work matches the rest of the site
+- QA every change on desktop, tablet and mobile before it goes live
+
+## Why maintenance matters
+
+A live site with real customers can't go down or look broken during a promo.
+Working inside a clean Client-First build means updates are fast, predictable
+and safe to publish.

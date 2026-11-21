@@ -19,6 +19,7 @@ const work = defineCollection({
     title: z.string(),
     summary: z.string(),                 // one line, shown on cards
     client: z.string(),
+    agency: z.string().optional(),        // agency you built it through, or "Direct" if the client hired you
     type: z.string(),                    // e.g. "Multi-page marketing site"
     year: z.number().optional(),
     role: z.string(),

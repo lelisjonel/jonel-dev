@@ -2,6 +2,7 @@
 title: DesignXP
 summary: A marketing site for a UX apprenticeship program where designers ship real products with startups and AI companies.
 client: DesignXP
+agency: Monstrum
 type: Education / program website
 role: Webflow Development
 stack: [Webflow, CMS, Client-First]

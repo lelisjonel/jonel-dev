@@ -2,6 +2,7 @@
 title: yeebee
 summary: A pre-launch landing page for a group-buying app for gamers and tech buyers.
 client: yeebee
+agency: WebPowerhouse
 type: Startup landing page
 role: Webflow Development
 stack: [Webflow, Interactions]

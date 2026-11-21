@@ -24,7 +24,10 @@ export async function getStaticPaths() {
 }
 
 const { project, prev, next } = Astro.props;
-const { title, summary, client, type, year, role, stack, liveUrl, accent, cover, coverAlt } = project.data;
+const { title, summary, client, agency, type, year, role, stack, liveUrl, accent, cover, coverAlt } = project.data;
+
+// "Direct" = the client hired me; otherwise I built it through that agency.
+const engagement = agency && (agency === 'Direct' ? 'Direct client' : `Via ${agency} (agency)`);
 const { Content } = await render(project);
 
 // Share image for social previews, made from the screenshot.
@@ -44,6 +47,7 @@ const shareImage = cover ? (await getImage({ src: cover, width: 1200, format: 'j
     <div class="container">
       <dl class="case_facts">
         <div class="case_fact"><dt>Client</dt><dd>{client}</dd></div>
+        {engagement && <div class="case_fact"><dt>Engagement</dt><dd>{engagement}</dd></div>}
         <div class="case_fact"><dt>Type</dt><dd>{type}</dd></div>
         {year && <div class="case_fact"><dt>Year</dt><dd>{year}</dd></div>}
         <div class="case_fact"><dt>Role</dt><dd>{role}</dd></div>

@@ -2,6 +2,7 @@
 title: TrialMatrix
 summary: A product site for an AI trial-intelligence platform built for litigation teams at law firms.
 client: TrialMatrix
+agency: Monstrum
 type: SaaS / AI product website
 role: Webflow Development
 stack: [Webflow, Interactions, Client-First]

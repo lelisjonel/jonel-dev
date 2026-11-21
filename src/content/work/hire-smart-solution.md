@@ -2,6 +2,7 @@
 title: Hire Smart Solution
 summary: A website for a virtual assistant staffing company serving clients worldwide.
 client: Hire Smart Solution
+agency: Direct
 type: Service business website
 role: Webflow Development
 stack: [Webflow, CMS]

@@ -2,6 +2,7 @@
 title: Giving Green
 summary: Ongoing Webflow maintenance for a content-rich climate nonprofit that helps donors find research-backed, high-impact giving.
 client: Giving Green
+agency: Monstrum
 type: Website maintenance
 role: Webflow Maintenance & Updates
 stack: [Webflow, CMS, Client-First]

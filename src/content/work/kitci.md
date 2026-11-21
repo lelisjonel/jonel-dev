@@ -2,6 +2,7 @@
 title: KITCI Redesign
 summary: A B2B corporate site redesign for a fire protection and insulation supplier with 50 years of history.
 client: KITCI
+agency: Direct
 type: Corporate / B2B website
 role: Webflow Development
 stack: [Webflow, CMS, Client-First]

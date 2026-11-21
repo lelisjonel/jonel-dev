@@ -2,6 +2,7 @@
 title: DLP Sucks
 summary: A bold campaign site for Jazz, collecting real stories from security teams.
 client: Jazz
+agency: Monstrum
 type: Campaign landing page
 role: Webflow Development
 stack: [Webflow, Client-First, HubSpot Forms]

@@ -2,9 +2,14 @@
 // src/components/Header.astro
 // The navbar. `isActive` highlights the link for the page you're on.
 import { site } from '../data/site';
+import { getPosts } from '../lib/blog';
+
+// "Blog" only appears once there is at least one post to read.
+const hasPosts = (await getPosts()).length > 0;
 
 const links = [
   { label: 'Work', href: '/work' },
+  ...(hasPosts ? [{ label: 'Blog', href: '/blog' }] : []),
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/#contact' },
 ];

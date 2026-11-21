@@ -1,0 +1,34 @@
+---
+// src/pages/blog/index.astro  ->  URL: /blog
+// Webflow comparison: a static page with a Collection List of every post.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../lib/blog';
+
+const posts = await getPosts();
+---
+
+<BaseLayout
+  title="Blog"
+  noindex={posts.length === 0}
+  description="Notes on Webflow, Client-First, Astro and building fast websites, from a developer who builds them every day."
+>
+  <section class="case_header">
+    <div class="container">
+      <span class="eyebrow">Blog</span>
+      <h1 class="heading-xl case_title">Notes from the build</h1>
+      <p class="text-large text-muted">Webflow, Client-First, Astro, and what I learn building websites for clients.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top: 0">
+    <div class="container">
+      {posts.length > 0 ? (
+        <div class="post-list">
+          {posts.map((post) => <PostCard post={post} />)}
+        </div>
+      ) : (
+        <p class="text-muted">First posts are on the way.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

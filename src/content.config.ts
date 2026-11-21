@@ -31,4 +31,20 @@ const work = defineCollection({
   }),
 });
 
-export const collections = { work };
+// --- Blog posts --------------------------------------------------------------
+// Each post lives in src/content/blog/*.md. The file name is the slug:
+// client-first-explained.md -> /blog/client-first-explained
+// `draft: true` posts show on localhost only, never on the live site.
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),                   // keep under ~60 characters for Google
+    description: z.string(),             // 140–160 characters, shown in search results
+    pubDate: z.coerce.date(),            // "2026-11-22" in the file -> a real Date
+    updatedDate: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { work, blog };

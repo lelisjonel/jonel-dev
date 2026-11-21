@@ -1,0 +1,71 @@
+---
+// src/pages/blog/[slug].astro  ->  URL: /blog/<post>
+// -----------------------------------------------------------------------------
+// A DYNAMIC ROUTE. Webflow comparison: the Blog *Collection Template page*.
+// -----------------------------------------------------------------------------
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { render } from 'astro:content';
+import { getPosts, formatDate, readingTime } from '../../lib/blog';
+import { site } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, draft } = post.data;
+const { Content } = await render(post);
+
+// Structured data: tells Google this page is a blog post, who wrote it and when.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: { '@type': 'Person', name: site.fullName, url: Astro.site?.href },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+};
+---
+
+<BaseLayout title={title} description={description} type="article" noindex={draft}>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
+
+  <article class="container post">
+    <header class="case_header post_header">
+      <a class="link-arrow" href="/blog">← All posts</a>
+      <h1 class="heading-l case_title">{title}</h1>
+      <div class="post-card_meta">
+        <span>By {site.fullName}</span>
+        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+        <span>{readingTime(post)}</span>
+        {draft && <span class="post-card_draft">Draft (only visible on localhost)</span>}
+      </div>
+    </header>
+
+    <div class="prose post_body">
+      <Content />
+    </div>
+
+    {tags.length > 0 && (
+      <ul class="tag-list" aria-label="Tags">
+        {tags.map((tag) => <li class="tag">{tag}</li>)}
+      </ul>
+    )}
+
+    <aside class="post_cta">
+      <img class="hero_avatar" src={site.photo} alt="" width="56" height="56" />
+      <div>
+        <h2 class="heading-m">Need a Webflow or Astro developer?</h2>
+        <p class="text-muted">I turn Figma designs into fast, pixel-perfect websites.</p>
+      </div>
+      <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
+    </aside>
+  </article>
+</BaseLayout>

@@ -12,9 +12,11 @@ import { site } from '../data/site';
 interface Props {
   title?: string;
   description?: string;
+  type?: 'website' | 'article'; // og:type, "article" for blog posts
+  noindex?: boolean;            // true = ask Google not to index this page
 }
 
-const { title, description = site.tagline } = Astro.props;
+const { title, description = site.tagline, type = 'website', noindex = false } = Astro.props;
 
 // Home page shows just "Jonel — Web Designer & Developer".
 const fullTitle = title ? `${title} | ${site.name}` : `${site.name} | ${site.role}`;
@@ -35,7 +37,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
+    <meta name="twitter:card" content="summary" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <slot name="head" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

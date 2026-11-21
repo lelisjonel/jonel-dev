@@ -16,9 +16,15 @@ So I rebuilt it from scratch with **Astro**. The result: a perfect
 **100 / 100 / 100 / 100** on Google PageSpeed Insights, on both mobile and
 desktop.
 
+<div class="screenshot-grid">
+
 ![PageSpeed Insights mobile report for jonel.dev: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO](./images/pagespeed-mobile.png)
+Mobile
 
 ![PageSpeed Insights desktop report for jonel.dev: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO](./images/pagespeed-desktop.png)
+Desktop
+
+</div>
 
 Here's what I did, and why it matters for the sites I build for clients.
 

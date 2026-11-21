@@ -59,10 +59,13 @@ const isActive = (href: string) => href !== '/#contact' && path.startsWith(href)
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     header?.classList.toggle('is-open', open);
+    document.documentElement.classList.toggle('menu-open', open);
   };
 
   toggle?.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
   document.querySelectorAll('.nav_menu a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  // Close if the screen grows past the mobile breakpoint while open.
+  matchMedia('(min-width: 48rem)').addEventListener('change', (e) => e.matches && setOpen(false));
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && header?.classList.contains('is-open')) {
       setOpen(false);

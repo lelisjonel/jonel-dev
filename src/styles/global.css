@@ -107,6 +107,8 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
 .nav_logo { font-family: var(--font-mono); font-weight: 500; font-size: 1.0625rem; }
 .nav_list { display: flex; align-items: center; gap: clamp(1rem, 3vw, 2rem); }
 .nav_button { padding: 0.5rem 1rem; font-size: 0.875rem; }
+.nav_link { color: var(--text-muted); font-size: 0.9375rem; transition: color 0.2s; }
+.nav_link:hover, .nav_link.is-active { color: var(--text); }
 
 /* Hamburger button: hidden on desktop. */
 .nav_toggle { display: none; }
@@ -123,18 +125,22 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
   .nav.is-open .nav_toggle-bar:nth-child(2) { opacity: 0; }
   .nav.is-open .nav_toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+  /* Full-height overlay below the header. Absolute (not fixed) because the
+     header's backdrop-filter would otherwise trap a fixed child. */
   .nav_menu {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
-    background: var(--bg); border-bottom: 1px solid var(--border);
-    padding: 0.5rem var(--gutter) 1.5rem;
+    height: calc(100dvh - 4rem); overflow-y: auto;
+    background: var(--bg); padding: 1rem var(--gutter) 2rem;
   }
-  .nav.is-open .nav_menu { display: block; }
-  .nav_list { flex-direction: column; align-items: stretch; gap: 0; }
-  .nav_link { display: block; padding: 0.9rem 0; font-size: 1.125rem; color: var(--text); border-bottom: 1px solid var(--border); }
-  .nav_button { display: flex; justify-content: center; margin-top: 1.25rem; padding: 0.8rem 1.4rem; font-size: 1rem; }
+  .nav.is-open .nav_menu { display: flex; flex-direction: column; }
+  .nav_list { flex-direction: column; align-items: stretch; gap: 0; flex: 1; }
+  .nav_link { display: block; padding: 1.1rem 0; font-size: 1.5rem; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--border); }
+  .nav_link.is-active { color: var(--accent); }
+  .nav_list li:last-child { margin-top: auto; }
+  .nav_button { display: flex; justify-content: center; margin-top: 2rem; padding: 1rem 1.4rem; font-size: 1.0625rem; }
+  /* Stop the page behind the menu from scrolling. */
+  html.menu-open { overflow: hidden; }
 }
-.nav_link { color: var(--text-muted); font-size: 0.9375rem; transition: color 0.2s; }
-.nav_link:hover, .nav_link.is-active { color: var(--text); }
 
 /* ---- Hero ----------------------------------------------------------------- */
 .hero { padding-block: clamp(5rem, 14vw, 10rem) var(--section-space); }

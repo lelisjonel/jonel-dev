@@ -3,6 +3,8 @@ title: "Webflow vs Astro: Which One Should You Build Your Site With?"
 description: "A Webflow and Astro developer compares the two for marketing sites: editing, speed, cost, CMS and SEO, and when to choose each one."
 pubDate: 2026-11-21
 tags: [Webflow, Astro, SEO]
+cover: ./images/cover-webflow-vs-astro.png
+coverAlt: "Cover: Webflow vs Astro, comparing the strengths of each platform"
 ---
 
 I build websites in both **Webflow** and **Astro**, and clients often ask which

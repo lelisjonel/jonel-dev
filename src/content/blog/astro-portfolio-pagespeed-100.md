@@ -3,8 +3,8 @@ title: "How I Rebuilt My Portfolio in Astro and Scored 100 on PageSpeed"
 description: "My new portfolio scores 100 for Performance, Accessibility, Best Practices and SEO on mobile and desktop. Here's exactly how I built it with Astro."
 pubDate: 2026-11-22
 tags: [Astro, Performance, SEO]
-cover: ./images/pagespeed-desktop.png
-coverAlt: "Google PageSpeed Insights report for jonel.dev showing 100 for Performance, Accessibility, Best Practices and SEO"
+cover: ./images/cover-astro-pagespeed.png
+coverAlt: "Cover: How I rebuilt my portfolio in Astro and scored 100 on PageSpeed, with four 100 score rings"
 ---
 
 I build websites for a living, so my own site should prove I can do it well.
@@ -17,6 +17,8 @@ So I rebuilt it from scratch with **Astro**. The result: a perfect
 desktop.
 
 ![PageSpeed Insights mobile report for jonel.dev: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO](./images/pagespeed-mobile.png)
+
+![PageSpeed Insights desktop report for jonel.dev: 100 Performance, 100 Accessibility, 100 Best Practices, 100 SEO](./images/pagespeed-desktop.png)
 
 Here's what I did, and why it matters for the sites I build for clients.
 

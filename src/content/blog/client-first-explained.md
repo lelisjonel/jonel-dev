@@ -3,6 +3,8 @@ title: "Client-First Explained: Why I Use It on Every Webflow Build"
 description: "What the Client-First system is, how its class naming works, and why it makes Webflow sites easier for clients and teams to edit after launch."
 pubDate: 2026-11-22
 tags: [Webflow, Client-First]
+cover: ./images/cover-client-first.png
+coverAlt: "Cover: Client-First explained, with an example of Client-First class names"
 ---
 
 If you've ever opened someone else's Webflow project and found classes like

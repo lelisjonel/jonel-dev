@@ -7,7 +7,7 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   // Your real domain. Used for canonical URLs and social share tags.
-  site: 'https://jonel.dev',
+  site: 'https://www.jonel.dev',
 
   // Every page becomes plain HTML at build time. Netlify just serves /dist.
   output: 'static',

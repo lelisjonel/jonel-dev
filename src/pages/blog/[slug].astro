@@ -33,7 +33,13 @@ const schema = {
   description,
   datePublished: pubDate.toISOString(),
   dateModified: (updatedDate ?? pubDate).toISOString(),
-  author: { '@type': 'Person', name: site.fullName, url: Astro.site?.href },
+  author: {
+    '@type': 'Person',
+    name: site.fullName,
+    jobTitle: site.role,
+    url: new URL('/about/', Astro.site).href,
+    image: new URL(site.photo, Astro.site).href,
+  },
   mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
   ...(shareImage && { image: new URL(shareImage, Astro.site).href }),
 };
@@ -46,11 +52,17 @@ const schema = {
     <header class="case_header post_header">
       <a class="link-arrow" href="/blog">← All posts</a>
       <h1 class="heading-l case_title">{title}</h1>
-      <div class="post-card_meta">
-        <span>By {site.fullName}</span>
-        <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
-        <span>{readingTime(post)}</span>
-        {draft && <span class="post-card_draft">Draft (only visible on localhost)</span>}
+      <div class="post_byline">
+        <img class="post_avatar" src={site.photo} alt={site.fullName} width="48" height="48" />
+        <div>
+          <a class="post_author" href="/about">{site.fullName}</a>
+          <div class="post-card_meta">
+            <span>{site.role}</span>
+            <time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+            <span>{readingTime(post)}</span>
+            {draft && <span class="post-card_draft">Draft (only visible on localhost)</span>}
+          </div>
+        </div>
       </div>
     </header>
 

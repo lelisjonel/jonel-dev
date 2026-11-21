@@ -5,7 +5,7 @@ client: yeebee
 type: Startup landing page
 role: Webflow Development
 stack: [Webflow, Interactions]
-liveUrl: https://yeebee-website.webflow.io/
+liveUrl: https://www.yeebee.com/
 cover: ../../assets/work/yeebee.png
 coverAlt: yeebee landing page hero with app preview
 accent: '#ffd23f'

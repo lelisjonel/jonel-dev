@@ -5,7 +5,7 @@ client: KITCI
 type: Corporate / B2B website
 role: Webflow Development
 stack: [Webflow, CMS, Client-First]
-liveUrl: https://kitci-redesign.webflow.io/
+liveUrl: https://www.kitcibuild.com/
 cover: ../../assets/work/kitci.png
 coverAlt: KITCI website homepage hero
 accent: '#ff8a4c'

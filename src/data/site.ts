@@ -10,7 +10,7 @@ export const site = {
   location: 'Metro Manila, Philippines',
   yearsExperience: 4,
   tagline: 'I build pixel-perfect Webflow sites with Client-First, and lightning-fast static sites with Astro.',
-  email: 'lelisjonel@gmail.com',
+  email: 'hello@jonel.dev',
   bookingUrl: 'https://calendly.com/jonellelis/discovery-call',
   photo: '/jonel.png',
   available: true, // shows the "Available for work" badge on the home page

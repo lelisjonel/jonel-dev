@@ -172,6 +172,25 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
   .hero_highlight { background: linear-gradient(var(--accent), var(--accent)) 0 92% / 0 0.08em no-repeat; animation: hero-underline 0.9s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
   .hero_dot { animation: hero-pulse 2.4s ease-in-out infinite; }
 }
+/* Same entrance for the header of every other page (Work, case studies, About,
+   Blog, posts). Titles only slide; images are left alone so the main paint
+   (LCP) isn't delayed. */
+@media (prefers-reduced-motion: no-preference) {
+  .case_header h1 { animation: hero-slide-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .case_header .eyebrow,
+  .case_header .link-arrow,
+  .case_header .container > p,
+  .post_header > p,
+  .post_byline,
+  .about-grid .prose > :not(h1) {
+    animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .case_header .container > p, .post_byline, .about-grid .prose > p:first-of-type { animation-delay: 0.15s; }
+  .about-grid .prose > p:nth-of-type(2) { animation-delay: 0.22s; }
+  .about-grid .prose > p:nth-of-type(3), .about-grid .prose > h2 { animation-delay: 0.3s; }
+  .about-grid .prose > ul, .about-grid .prose > .button-group { animation-delay: 0.38s; }
+}
+
 @keyframes hero-fade-up { from { opacity: 0; transform: translateY(16px); } }
 @keyframes hero-slide-up { from { transform: translateY(14px); } }
 @keyframes hero-underline { to { background-size: 100% 0.08em; } }

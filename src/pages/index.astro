@@ -8,6 +8,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Testimonials from '../components/Testimonials.astro';
+import { Image } from 'astro:assets';
+import photo from '../assets/jonel.png';
 import { site } from '../data/site';
 import { getFeaturedProjects } from '../lib/work';
 import { getPosts } from '../lib/blog';
@@ -50,7 +52,7 @@ const schema = {
   <section class="hero">
     <div class="container">
       <div class="hero_intro">
-        <img class="hero_avatar" src={site.photo} alt={site.fullName} width="56" height="56" />
+        <Image class="hero_avatar" src={photo} alt={site.fullName} width={56} height={56} densities={[1, 2]} loading="eager" />
         {site.available && (
           <p class="hero_status"><span class="hero_dot"></span> Available for new projects</p>
         )}

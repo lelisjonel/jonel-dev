@@ -3,6 +3,8 @@
 // Experience comes from `experience` in src/data/site.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Testimonials from '../components/Testimonials.astro';
+import { Image } from 'astro:assets';
+import photo from '../assets/jonel.png';
 import { site } from '../data/site';
 ---
 
@@ -10,7 +12,7 @@ import { site } from '../data/site';
   <section class="case_header">
     <div class="container">
       <div class="about-grid">
-        <img class="about_portrait" src={site.photo} alt={`Portrait of ${site.fullName}`} width="600" height="600" />
+        <Image class="about_portrait" src={photo} alt={`Portrait of ${site.fullName}`} widths={[320, 480, 600]} sizes="(min-width: 48rem) 40vw, 100vw" loading="eager" />
         <div class="prose">
           <span class="eyebrow">About</span>
           <h1 class="heading-l">I care about the details people don't notice, until they're missing.</h1>

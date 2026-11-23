@@ -1,0 +1,85 @@
+---
+// src/components/ContactForm.astro
+// -----------------------------------------------------------------------------
+// The contact form. It posts straight to Web3Forms, which emails the message to
+// hello@jonel.dev and then sends the visitor to /thank-you. No JavaScript.
+// Webflow comparison: a Form Block whose submissions go to your email.
+// -----------------------------------------------------------------------------
+import { site } from '../data/site';
+
+const redirect = new URL('/thank-you/', Astro.site).href;
+---
+
+<form class="form_component" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value={site.contactFormKey} />
+  <input type="hidden" name="subject" value="New message from jonel.dev" />
+  <input type="hidden" name="from_name" value="jonel.dev contact form" />
+  <input type="hidden" name="redirect" value={redirect} />
+  <!-- Spam trap: hidden from people, bots tick it and get rejected. -->
+  <input type="checkbox" name="botcheck" class="form_honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <div class="form_row">
+    <div class="form_field">
+      <label class="form_label" for="contact-name">Name</label>
+      <input class="form_input" id="contact-name" name="name" type="text" autocomplete="name" required />
+    </div>
+    <div class="form_field">
+      <label class="form_label" for="contact-email">Email</label>
+      <input class="form_input" id="contact-email" name="email" type="email" autocomplete="email" required />
+    </div>
+  </div>
+
+  <div class="form_field">
+    <label class="form_label" for="contact-topic">I'm reaching out about</label>
+    <select class="form_input" id="contact-topic" name="topic" required>
+      <option value="" disabled selected>Choose one</option>
+      <option>A new website project</option>
+      <option>Ongoing Webflow maintenance</option>
+      <option>A job or contract role</option>
+      <option>Something else</option>
+    </select>
+  </div>
+
+  <div class="form_field">
+    <label class="form_label" for="contact-message">Message</label>
+    <textarea class="form_input" id="contact-message" name="message" rows="5" required
+      placeholder="Tell me a bit about the project or role, and any links or timelines."></textarea>
+  </div>
+
+  <button class="button is-primary form_submit" type="submit">Send message</button>
+  <p class="form_error" role="alert" hidden>
+    Sorry, your message didn't send. Please try again, or email me at <a href={`mailto:${site.email}`}>{site.email}</a>.
+  </p>
+  <p class="form_note">I usually reply within 24 hours. Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a></p>
+</form>
+
+<script>
+  // Send the form in the background so visitors land on our own /thank-you page
+  // (Web3Forms' free plan ignores the redirect field). Without JavaScript the
+  // form still posts normally.
+  document.querySelectorAll<HTMLFormElement>('.form_component').forEach((form) => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const button = form.querySelector<HTMLButtonElement>('.form_submit')!;
+      const error = form.querySelector<HTMLElement>('.form_error')!;
+      button.disabled = true;
+      button.textContent = 'Sending...';
+      error.hidden = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        const result = await response.json();
+        if (!result.success) throw new Error(result.message);
+        window.location.href = '/thank-you/';
+      } catch {
+        error.hidden = false;
+        button.disabled = false;
+        button.textContent = 'Send message';
+      }
+    });
+  });
+</script>

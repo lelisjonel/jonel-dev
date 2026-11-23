@@ -25,7 +25,7 @@ export default defineConfig({
     // Builds /sitemap-index.xml automatically: a list of every page for Google.
     // Webflow comparison: the "Auto-generate Sitemap" toggle in SEO settings.
     sitemap({
-      filter: (page) => !page.endsWith('/404/') && (hasPublishedPosts || !page.includes('/blog/')),
+      filter: (page) => !page.endsWith('/404/') && !page.endsWith('/thank-you/') && (hasPublishedPosts || !page.includes('/blog/')),
     }),
   ],
 });

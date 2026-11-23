@@ -42,5 +42,5 @@ every site, whichever platform you choose.
 
 ## Still not sure?
 
-Book a discovery call and tell me about your team and your goals. I'll recommend
+[Get in touch](/contact) and tell me about your team and your goals. I'll recommend
 the platform that fits, even if it's the one I'm not building for you.

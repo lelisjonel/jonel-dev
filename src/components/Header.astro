@@ -12,11 +12,10 @@ const links = [
   { label: 'Work', href: '/work' },
   ...(hasPosts ? [{ label: 'Blog', href: '/blog' }] : []),
   { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/#contact' },
 ];
 
 const path = Astro.url.pathname;
-const isActive = (href: string) => href !== '/#contact' && path.startsWith(href);
+const isActive = (href: string) => path.startsWith(href);
 ---
 
 <header class="nav">
@@ -43,7 +42,7 @@ const isActive = (href: string) => href !== '/#contact' && path.startsWith(href)
           </li>
         ))}
         <li>
-          <a class="button is-primary nav_button" href={site.bookingUrl} target="_blank" rel="noopener">Book a call</a>
+          <a class="button is-primary nav_button" href="/contact">Get in touch</a>
         </li>
       </ul>
     </nav>

@@ -11,7 +11,9 @@ export const site = {
   yearsExperience: 4,
   tagline: 'I build pixel-perfect Webflow sites with Client-First, and lightning-fast static sites with Astro.',
   email: 'hello@jonel.dev',
-  bookingUrl: 'https://calendly.com/jonellelis/discovery-call',
+  // Contact form (Web3Forms). The access key is meant to be public: it only lets
+  // the form send messages to hello@jonel.dev. Get it at web3forms.com.
+  contactFormKey: 'bd9ea644-30c3-4999-8692-f5adbbc989c9',
   photo: '/jonel.png',
   available: true, // shows the "Available for work" badge on the home page
   // Shown in the hero and contact section. Employers and agencies look for this.

@@ -1,0 +1,22 @@
+---
+// src/pages/thank-you.astro  ->  URL: /thank-you  (shown after the contact form)
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Thanks for your message" noindex>
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Message sent</span>
+      <h1 class="heading-xl hero_title" style="margin-top: 1rem">Thanks, I got your message.</h1>
+      <p class="text-large text-muted hero_text">
+        I usually reply within 24 hours. If it's urgent, email me directly at
+        <a class="text-accent" href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+      <div class="button-group" style="margin-top: 2rem">
+        <a class="button is-primary" href="/work">See my work</a>
+        <a class="button" href="/blog">Read the blog</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

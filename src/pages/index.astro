@@ -6,6 +6,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { site } from '../data/site';
 import { getFeaturedProjects } from '../lib/work';
 import { getPosts } from '../lib/blog';
@@ -32,7 +33,7 @@ const latestPosts = (await getPosts()).slice(0, 3);
       </p>
       <p class="hero_availability">{site.availability}</p>
       <div class="button-group hero_actions">
-        <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
+        <a class="button is-primary" href="/contact">Get in touch</a>
         <a class="button" href="/work">View my work</a>
       </div>
     </div>
@@ -97,19 +98,21 @@ const latestPosts = (await getPosts()).slice(0, 3);
   )}
 
   <!-- Contact -->
-  <section class="section cta" id="contact">
-    <div class="container">
-      <span class="eyebrow">Contact</span>
-      <h2 class="heading-l cta_title">Have a Figma file that needs building? Let's talk.</h2>
-      <p class="text-large text-muted cta_text">Book a free discovery call, or send me an email.</p>
-      <p class="hero_availability cta_availability">{site.availability}</p>
-      <div class="button-group">
-        <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
-        <a class="button" href={`mailto:${site.email}`}>{site.email}</a>
-        {site.socials.map((s) => (
-          <a class="button" href={s.href} target="_blank" rel="noopener">{s.label}</a>
-        ))}
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 class="heading-l contact_title">Have a Figma file that needs building? Let's talk.</h2>
+        <p class="text-large text-muted">Send me a message about a project, ongoing maintenance or a role, and I'll get back to you.</p>
+        <p class="hero_availability">{site.availability}</p>
+        <div class="button-group">
+          <a class="button" href={`mailto:${site.email}`}>{site.email}</a>
+          {site.socials.map((s) => (
+            <a class="button" href={s.href} target="_blank" rel="noopener">{s.label}</a>
+          ))}
+        </div>
       </div>
+      <ContactForm />
     </div>
   </section>
 </BaseLayout>

@@ -12,8 +12,6 @@ order: 7
 draft: true
 ---
 
-<!-- TODO (Jonel): describe the project once the link works again. -->
-
 ## The project
 
 A company website for RZB Construction.

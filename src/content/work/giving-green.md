@@ -13,9 +13,6 @@ accent: '#3fbf7f'
 order: 7
 ---
 
-<!-- TODO (Jonel): confirm the tasks below match what you actually do, and add
-how long you've maintained the site (e.g. "since 2025"). -->
-
 ## The project
 
 Giving Green researches and recommends the most effective climate nonprofits.

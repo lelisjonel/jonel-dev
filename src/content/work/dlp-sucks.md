@@ -14,8 +14,6 @@ featured: true
 order: 2
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
-
 ## The project
 
 A single-page campaign by the security company Jazz, giving security

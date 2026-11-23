@@ -27,8 +27,9 @@ My portfolio site, built with [Astro](https://astro.build) and deployed on Verce
 
 ## To do
 
-- [ ] Add your role and result to each project (look for `TODO` in `src/content/work/`)
-- [ ] Project screenshots (replace the gradient boxes)
+- [ ] Add 1–2 sentences on your role and any result to each case study in `src/content/work/`
+      (KITCI, DLP Sucks, Golf Ranch, DesignXP, TrialMatrix, Giving Green, Hire Smart Solution, yeebee).
+      For Golf Ranch and Giving Green, confirm the maintenance tasks and how long you've maintained them.
 - [ ] Testimonials
 - [ ] Social links in `src/data/site.ts` once set up
 

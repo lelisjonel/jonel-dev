@@ -14,8 +14,6 @@ featured: true
 order: 1
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
-
 ## The project
 
 A redesign of the corporate website for KITCI, a Pasig City supplier of passive

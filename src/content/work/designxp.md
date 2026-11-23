@@ -13,8 +13,6 @@ accent: '#ff6b3d'
 order: 5
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
-
 ## The project
 
 DesignXP is a Figma-approved partner program that places aspiring UX designers

@@ -13,9 +13,6 @@ accent: '#e6b800'
 order: 4
 ---
 
-<!-- TODO (Jonel): confirm the tasks below match what you actually do, and add
-how long you've maintained the site (e.g. "since 2025"). -->
-
 ## The project
 
 Golf Ranch is "a driving range, but better": Toptracer bays, premium balls and

@@ -13,8 +13,6 @@ accent: '#d9c7a3'
 order: 6
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
-
 ## The project
 
 TrialMatrix is an AI platform that maps every fact, witness and contradiction in

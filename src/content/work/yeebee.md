@@ -13,8 +13,6 @@ accent: '#ffd23f'
 order: 9
 ---
 
-<!-- TODO (Jonel): add 1–2 sentences on your role and any result. -->
-
 ## The project
 
 A pre-launch landing page for yeebee, an app where prices drop as more people

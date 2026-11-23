@@ -10,7 +10,8 @@ liveUrl: https://www.golfranch.com/
 cover: ../../assets/work/golfranch.png
 coverAlt: Golf Ranch homepage hero with golfers at a driving range
 accent: '#e6b800'
-order: 4
+featured: true
+order: 3
 ---
 
 ## The project

@@ -157,6 +157,29 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
 .hero_availability { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 2.5rem; }
 .cta_availability { margin-top: -1rem; margin-bottom: 2rem; }
 
+/* Hero entrance: CSS only, so it starts instantly with no JavaScript.
+   The headline only slides (never hidden), so it doesn't delay the page's
+   main paint (LCP) for PageSpeed. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero_intro, .hero_text, .hero .hero_availability, .hero_actions {
+    animation: hero-fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero_title { animation: hero-slide-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero_text { animation-delay: 0.15s; }
+  .hero .hero_availability { animation-delay: 0.25s; }
+  .hero_actions { animation-delay: 0.35s; }
+
+  .hero_highlight { background: linear-gradient(var(--accent), var(--accent)) 0 92% / 0 0.08em no-repeat; animation: hero-underline 0.9s 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  .hero_dot { animation: hero-pulse 2.4s ease-in-out infinite; }
+}
+@keyframes hero-fade-up { from { opacity: 0; transform: translateY(16px); } }
+@keyframes hero-slide-up { from { transform: translateY(14px); } }
+@keyframes hero-underline { to { background-size: 100% 0.08em; } }
+@keyframes hero-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+  50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent) 0%, transparent); }
+}
+
 /* ---- Project cards -------------------------------------------------------- */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); gap: 1.5rem; }
 .project-card {

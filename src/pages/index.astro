@@ -25,13 +25,13 @@ const latestPosts = (await getPosts()).slice(0, 3);
         )}
       </div>
       <h1 class="heading-xl hero_title">
-        Hi, I'm {site.fullName}. I turn Figma designs into fast, <span class="text-accent text-nowrap">pixel-perfect</span> Webflow &amp; Astro sites.
+        Hi, I'm {site.fullName}. I turn Figma designs into fast, <span class="text-accent text-nowrap hero_highlight">pixel-perfect</span> Webflow &amp; Astro sites.
       </h1>
       <p class="text-large text-muted hero_text">
         {site.yearsExperience}+ years building Client-First Webflow sites and lightning-fast Astro sites, from {site.location}.
       </p>
       <p class="hero_availability">{site.availability}</p>
-      <div class="button-group">
+      <div class="button-group hero_actions">
         <a class="button is-primary" href={site.bookingUrl} target="_blank" rel="noopener">Book a discovery call</a>
         <a class="button" href="/work">View my work</a>
       </div>

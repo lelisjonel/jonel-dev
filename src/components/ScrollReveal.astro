@@ -1,0 +1,62 @@
+---
+// src/components/ScrollReveal.astro
+// -----------------------------------------------------------------------------
+// Subtle scroll animations with GSAP + ScrollTrigger: content fades in and
+// rises slightly as it scrolls into view.
+//
+// Rules that keep the site fast and accessible:
+// - Only elements BELOW the first screen are animated, so nothing visible on
+//   load is hidden (no flicker, no slower PageSpeed).
+// - Nothing happens if the visitor has "reduce motion" turned on.
+// - Without JavaScript, everything is simply visible.
+// Webflow comparison: like a "Scroll into view" interaction on these elements.
+// -----------------------------------------------------------------------------
+---
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  // Everything that reveals on scroll. Add a selector here to animate more.
+  const SELECTOR = [
+    '.section_header',
+    '.project-card',
+    '.service-item',
+    '.tag-list',
+    '.post-card',
+    '.timeline_item',
+    '.case_facts',
+    '.case_hero',
+    '.post_cta',
+    '.cta .container > *',
+  ].join(', ');
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Skip anything already on screen when the page loads.
+    const items = gsap.utils
+      .toArray<HTMLElement>(SELECTOR)
+      .filter((el) => el.getBoundingClientRect().top > window.innerHeight * 0.9);
+
+    gsap.set(items, { autoAlpha: 0, y: 24 });
+
+    ScrollTrigger.batch(items, {
+      start: 'top 90%',
+      once: true,
+      onEnter: (batch) =>
+        gsap.to(batch, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: 0.08,
+          overwrite: true,
+          // Hand control back to CSS so hover effects on cards still work.
+          clearProps: 'transform,opacity,visibility',
+        }),
+    });
+  }
+</script>

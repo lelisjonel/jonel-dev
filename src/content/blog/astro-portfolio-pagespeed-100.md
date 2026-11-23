@@ -34,11 +34,15 @@ Astro turns every page into plain HTML when the site is built, before anyone
 visits it. There's no server to wait for and no database to go down. The
 browser just downloads a finished page.
 
-The best part is what Astro *doesn't* send. My pages ship **no framework
-JavaScript** at all. No React, no bundles, nothing for the phone to download and
-run before the page becomes usable. The only script is a tiny analytics snippet
-of about 1.5 KB, added after the site was already scoring 100. That single
-decision does most of the work for the Performance score.
+The best part is what Astro *doesn't* send. When the site scored 100, the
+homepage shipped **zero JavaScript**: no React, no framework, nothing for the
+phone to download and run before the page becomes usable. That single decision
+does most of the work for the Performance score.
+
+Since then I've added a few things on purpose: a tiny analytics snippet and
+mobile menu (about 1.5 KB together), and GSAP for subtle scroll animations.
+GSAP loads after the page has already rendered, and nothing visible on the first
+screen waits for it.
 
 ## The numbers behind the score
 
@@ -48,7 +52,8 @@ These are real numbers from the build, not estimates:
 | --- | --- |
 | Homepage HTML | about 12 KB |
 | All CSS for the whole site | about 11 KB |
-| JavaScript on the homepage | about 1.5 KB (just the analytics snippet, no framework) |
+| JavaScript on the homepage when it scored 100 | 0 KB |
+| JavaScript added since (menu, analytics, GSAP scroll animations) | about 46 KB compressed, no framework |
 | Project screenshots (original PNGs) | 6.8 MB |
 | The same screenshots after Astro optimized them | 788 KB |
 

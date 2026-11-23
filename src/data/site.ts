@@ -19,7 +19,7 @@ export const site = {
 
   // Add links here as you set them up. Empty = hidden on the site.
   socials: [
-    // { label: 'LinkedIn', href: 'https://www.linkedin.com/in/...' }, // add back once recovered
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jonellelis/' },
     // { label: 'GitHub', href: 'https://github.com/...' },
     // { label: 'Webflow', href: 'https://webflow.com/@...' },
   ] as { label: string; href: string }[],
@@ -52,10 +52,16 @@ export const site = {
       text: 'Build and maintain marketing and brand websites, using Relume components to move fast, with QA across desktop, tablet and mobile.',
     },
     {
-      company: 'WebPowerhouse',
-      role: 'Webflow Developer (Part-Time)',
+      company: 'Monstrum',
+      role: 'Webflow Developer',
       period: 'Nov 2024 – Present',
-      text: 'Develop responsive Client-First builds from Figma, with CMS collections, dynamic pages, SEO and performance work alongside designers and PMs.',
+      text: 'Build agency client sites in Webflow with Client-First, including the TrialMatrix product site and the DLP Sucks campaign site with HubSpot form integration.',
+    },
+    {
+      company: 'WebPowerhouse',
+      role: 'Webflow Developer (Project-Based)',
+      period: 'Nov 2024 – Dec 2025',
+      text: 'Developed responsive Client-First builds from Figma for projects including BYD and Kia, with CMS collections, dynamic pages, SEO and performance work alongside designers and PMs.',
     },
     {
       company: 'Dorxata',

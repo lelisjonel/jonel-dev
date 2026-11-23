@@ -1,0 +1,44 @@
+---
+// src/components/Testimonials.astro
+// Shows quotes from src/data/testimonials.ts. Renders nothing on the live site
+// until there is at least one real testimonial; in dev it shows labeled
+// placeholders so you can see the layout.
+import { testimonials } from '../data/testimonials';
+
+const placeholders = [1, 2, 3].map((n) => ({
+  quote: `PLACEHOLDER ${n}: a real client quote goes here. This card only shows in dev.`,
+  name: 'Client name',
+  role: 'Role, Company',
+  url: undefined,
+}));
+
+const items = testimonials.length > 0 ? testimonials : import.meta.env.DEV ? placeholders : [];
+---
+
+{items.length > 0 && (
+  <section class="section">
+    <div class="container">
+      <div class="section_header">
+        <div>
+          <span class="eyebrow">Kind words</span>
+          <h2 class="heading-l">What clients say</h2>
+        </div>
+      </div>
+      <div class="testimonial-grid">
+        {items.map((t) => (
+          <figure class="testimonial">
+            <blockquote class="testimonial_quote">“{t.quote}”</blockquote>
+            <figcaption>
+              {t.url ? (
+                <a class="testimonial_name" href={t.url} target="_blank" rel="noopener">{t.name}</a>
+              ) : (
+                <span class="testimonial_name">{t.name}</span>
+              )}
+              <span class="testimonial_role">{t.role}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

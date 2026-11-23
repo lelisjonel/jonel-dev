@@ -7,15 +7,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import PostCard from '../components/PostCard.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Testimonials from '../components/Testimonials.astro';
 import { site } from '../data/site';
 import { getFeaturedProjects } from '../lib/work';
 import { getPosts } from '../lib/blog';
 
 const featured = await getFeaturedProjects();
 const latestPosts = (await getPosts()).slice(0, 3);
+
+// Structured data: tells Google who this site is about and links it to LinkedIn.
+const siteUrl = Astro.site!.href;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      name: site.fullName,
+      alternateName: 'jonel.dev',
+      url: siteUrl,
+      publisher: { '@id': `${siteUrl}#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}#person`,
+      name: site.fullName,
+      jobTitle: site.role,
+      url: siteUrl,
+      image: new URL(site.photo, Astro.site).href,
+      email: `mailto:${site.email}`,
+      address: { '@type': 'PostalAddress', addressRegion: 'Metro Manila', addressCountry: 'PH' },
+      sameAs: site.socials.map((s) => s.href),
+      knowsAbout: ['Webflow', 'Client-First', 'Astro', 'Figma to Webflow', 'Responsive web design', 'Technical SEO'],
+    },
+  ],
+};
 ---
 
 <BaseLayout description="Jonel Lelis is a Webflow (Client-First) and Astro developer in the Philippines who turns Figma designs into fast, pixel-perfect, SEO-ready websites.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
   <!-- Hero -->
   <section class="hero">
     <div class="container">
@@ -78,6 +108,9 @@ const latestPosts = (await getPosts()).slice(0, 3);
       </ul>
     </div>
   </section>
+
+  <!-- Testimonials (hidden until src/data/testimonials.ts has real quotes) -->
+  <Testimonials />
 
   <!-- Latest posts (hidden until there is at least one post) -->
   {latestPosts.length > 0 && (

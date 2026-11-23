@@ -2,6 +2,7 @@
 // src/pages/about.astro  ->  URL: /about
 // Experience comes from `experience` in src/data/site.ts.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Testimonials from '../components/Testimonials.astro';
 import { site } from '../data/site';
 ---
 
@@ -73,4 +74,6 @@ import { site } from '../data/site';
       </p>
     </div>
   </section>
+
+  <Testimonials />
 </BaseLayout>

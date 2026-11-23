@@ -233,6 +233,15 @@ h1, h2, h3 { line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; }
 .tag { font-family: var(--font-mono); font-size: 0.8125rem; padding: 0.35rem 0.8rem; border: 1px solid var(--border); border-radius: 999px; color: var(--text-muted); }
 
+/* ---- Testimonials --------------------------------------------------------- */
+.testimonial-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 56rem) { .testimonial-grid { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); } }
+.testimonial { margin: 0; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.testimonial_quote { margin: 0; font-size: 1.0625rem; line-height: 1.6; }
+.testimonial figcaption { display: grid; gap: 0.2rem; margin-top: auto; }
+.testimonial_name { font-weight: 600; color: var(--text); }
+.testimonial_role { font-size: 0.875rem; color: var(--text-muted); }
+
 /* ---- Contact CTA ---------------------------------------------------------- */
 .cta { text-align: center; }
 .cta_title { max-width: 18ch; margin: 1rem auto 1.5rem; }

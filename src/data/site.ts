@@ -75,5 +75,11 @@ export const site = {
       period: 'Aug 2023 – Oct 2023',
       text: 'Developed campaign landing pages and funnels from Figma, optimizing page performance for launches.',
     },
+    {
+      company: 'Freelance',
+      role: 'Webflow Developer (Side Projects)',
+      period: '2022 – 2023',
+      text: 'Took on Webflow builds and fixes for clients I met through the Webflow developer community, working directly with each client.',
+    },
   ],
 };

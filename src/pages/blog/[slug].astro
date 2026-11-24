@@ -36,10 +36,13 @@ const schema = {
   dateModified: (updatedDate ?? pubDate).toISOString(),
   author: {
     '@type': 'Person',
+    // Same @id as the Person on the home page, so Google treats them as one person.
+    '@id': new URL('/#person', Astro.site).href,
     name: site.fullName,
     jobTitle: site.role,
     url: new URL('/about/', Astro.site).href,
     image: new URL(site.photo, Astro.site).href,
+    sameAs: site.socials.map((s) => s.href),
   },
   mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
   ...(shareImage && { image: new URL(shareImage, Astro.site).href }),

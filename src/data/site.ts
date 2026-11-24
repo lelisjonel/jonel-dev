@@ -8,7 +8,7 @@ export const site = {
   fullName: 'Jonel Lelis',
   role: 'Webflow & Astro Developer',
   location: 'Metro Manila, Philippines',
-  yearsExperience: 4,
+  yearsExperience: 3,
   tagline: 'I build pixel-perfect Webflow sites with Client-First, and lightning-fast static sites with Astro.',
   email: 'hello@jonel.dev',
   // Contact form (Web3Forms). The access key is meant to be public: it only lets

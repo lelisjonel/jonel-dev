@@ -1,7 +1,8 @@
 ---
-title: "How I Rebuilt My Portfolio in Astro and Scored 100 on PageSpeed"
-description: "My new portfolio scores 100 for Performance, Accessibility, Best Practices and SEO on mobile and desktop. Here's exactly how I built it with Astro."
+title: "How I Rebuilt My Astro Portfolio to Score 100 on PageSpeed"
+description: "My Astro portfolio scores 100 for Performance, Accessibility, Best Practices and SEO on mobile and desktop. Here's exactly how I built it."
 pubDate: 2026-11-22
+updatedDate: 2026-11-24
 tags: [Astro, Performance, SEO]
 cover: ./images/cover-astro-pagespeed.png
 coverAlt: "Cover: How I rebuilt my portfolio in Astro and scored 100 on PageSpeed, with four 100 score rings"
@@ -105,6 +106,22 @@ I set this up once. Every new project or blog post I add inherits it.
 The site is hosted on Vercel. When I push a change to GitHub, the new version
 is built and live in **about 10 seconds**. Hosting a static site like this costs
 nothing.
+
+## FAQ
+
+**Is Astro good for a portfolio site?**
+Yes, if you're comfortable editing files. Pages are plain HTML, content lives in
+Markdown, and hosting is often free. If you'd rather edit pages visually,
+Webflow is the easier choice.
+
+**Does Astro help with SEO?**
+It helps with the technical side: fast pages and clean HTML that Google can read
+easily. You still need good titles, descriptions, a sitemap and useful content.
+
+**Can a Webflow site score 100 on PageSpeed?**
+Webflow sites can score well, but Webflow adds its own JavaScript to every page,
+so a perfect mobile score takes more work. Most of the habits in this post still
+apply: optimized images, fewer fonts and scripts, and clean structure.
 
 ## What this means if you're hiring a developer
 

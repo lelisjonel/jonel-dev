@@ -11,6 +11,8 @@ cover: ../../assets/work/rzb-development.png
 coverAlt: RZB Development Corp homepage hero with a steel worker and the headline Built with discipline
 accent: '#f5cb09'
 order: 10
+# Hidden until RZB's site is fully launched (forms key, domain, content sign-off). Remove this line to publish.
+draft: true
 ---
 
 ## The project
